@@ -1,14 +1,15 @@
-import java.awt.BorderLayout;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
-public class ToDoListGui extends JFrame {
+public class ToDoListGui extends JFrame implements ActionListener{
 
     //taskPanel will act as the container for the taskComponentPanel
     //taskComponentPanel will store all of the taskComponent. 
@@ -51,7 +52,7 @@ public class ToDoListGui extends JFrame {
         //add task button 
         JButton addTaskButton = new JButton("Add Task");
         addTaskButton.setBounds(0, CommonConstants.GUI_SIZE.height - 88, CommonConstants.ADDTASKBUTTON_SIZE.width, CommonConstants.ADDTASKBUTTON_SIZE.height);
-
+        addTaskButton.addActionListener(this);
         //add these to frame
         this.getContentPane().add(banner);
         this.getContentPane().add(scrollPane);
@@ -59,6 +60,19 @@ public class ToDoListGui extends JFrame {
 
         
 
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        if(command.equalsIgnoreCase("Add Task")){
+            TaskComponent taskComponent = new TaskComponent(taskComponentPanel);
+            taskComponentPanel.add(taskComponent);
+            taskComponent.getTaskField().requestFocus();
+            repaint();
+            revalidate();
+
+        }
+       
     }
     
 

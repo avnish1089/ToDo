@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class CommonConstants {
     // frame config
-    public static final Dimension GUI_SIZE = new Dimension(300, 400);
+    public static final Dimension GUI_SIZE = new Dimension(400, 500);
 
     // banner config
     public static final Dimension BANNER_SIZE  = new Dimension(GUI_SIZE.width, 50);
@@ -12,4 +12,10 @@ public class CommonConstants {
 
     //add task button config
     public static final Dimension ADDTASKBUTTON_SIZE = new Dimension(GUI_SIZE.width, 50);
+
+    // task component config
+    public static final Dimension TASKFIELD_SIZE = new Dimension((int)(TASKPANEL_SIZE.width*0.8), 50);
+    public static final Dimension CHECK_BOX_SIZE   = new Dimension((int)(TASKFIELD_SIZE.width*0.05), 50);
+    public static final Dimension DELETE_BUTTON_SIZE = new Dimension((int)(TASKFIELD_SIZE.width*0.12), 50);
+
 }
